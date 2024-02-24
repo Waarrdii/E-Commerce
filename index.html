@@ -12,18 +12,14 @@
   <body>
     <div id="app">
       <div class="container-flui">
-        <div class="row">
-          <!-- <div  class="card" style="width: 18rem;">
-            <img  class="card-img-top" alt="...">
+        <div class="d-flex flex-wrap align-item-center">
+          <div v-for="product in products" :key="product.id" class="card col-2 my-1 mx-1">
+            <img :src="product.images" referrerpolicy="no-referrer" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ product.title }}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">{{ product.description }}</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-          </div> -->
-          <div v-for="product in products">
-            <h1>{{ product.name }}</h1>
-            <p>Price: {{ product.price }}</p>
           </div>
         </div>
       </div>      
