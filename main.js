@@ -6,7 +6,7 @@ const app = new Vue({
     },
     mounted() {
         // Fetch data produk dari WooCommerce API
-        axios.get(`https://api.escuelajs.co/api/v1/products?offset=0&limit=50`)
+        axios.get(`https://fakestoreapi.com/products`)
           .then(response => {
             // Simpan data produk dalam state
             this.products = response.data
