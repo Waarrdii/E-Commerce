@@ -13,5 +13,12 @@ const app = new Vue({
             console.log(this.products)
           })
       },
-
+      filter:{
+        trunCate(text, lenght, suffix){
+          if(text <= lenght){
+            return text;
+          }
+          return text.substr(0,lenght)+ (suffix || '...');
+        }
+      }
 })
