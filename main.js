@@ -14,7 +14,9 @@ const app = new Vue({
             console.log(this.products)
           })
       },
-      methods () {
-        
+      methods:{
+        addCart:function (product){
+          this.cart.push(product); 
+        }
       }
 })
