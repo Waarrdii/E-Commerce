@@ -2,7 +2,8 @@
 const app = new Vue({
     el : "#app",
     data : {
-      products : []
+      products : null,
+      cart : []
     },
     mounted() {
         // Fetch data produk dari WooCommerce API
@@ -13,5 +14,7 @@ const app = new Vue({
             console.log(this.products)
           })
       },
-      
+      methods () {
+        
+      }
 })
