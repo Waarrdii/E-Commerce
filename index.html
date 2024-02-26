@@ -29,12 +29,16 @@
             </form>
             <ul class="navbar-nav my-2 my-lg-0">
               <li class=" dropdown nav-item position-relative">
-                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-expanded="true" >
+                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-expanded="false" >
                 <span class="material-symbols-outlined">shopping_cart</span>
                 <span class="badge badge-pill badge-danger position-absolute" style="top: -3px; right: 0;" v-if="cart.length > 0">{{ cart.length }}</span>
                 </a>
-                <ul  class="dropdown-menu dropdown-menu-right">
-                  <li v-for="item in cart" class="text-truncate">{{ item.title }}</li>
+                <ul v-show="cart.length > 0" class="dropdown-menu dropdown-menu-right">
+                  <li v-for="item in cart" class="d-flex flex-row justify-content-between mb-3">
+                    <img :src="item.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
+                    <div class="text-truncate mx-2" style="width: 120px;">{{ item.title }}</div>
+                    <div class="mx-2">{{ item.price }}</div>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">

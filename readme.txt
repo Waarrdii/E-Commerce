@@ -6,3 +6,5 @@ style baru :
     v-show directive: Mirip dengan v-if, tetapi v-show hanya menyembunyikan elemen, sedangkan v-if menghapus elemen dari DOM.
     Computed property: Merupakan fungsi yang dihitung setiap kali nilai dependensi berubah. Dalam hal ini, cartLength akan dihitung ulang setiap kali cart berubah.
     Template ternary operator: Operator ternary adalah operator kondisional yang dapat digunakan untuk mengevaluasi ekspresi dan mengembalikan nilai berdasarkan hasil evaluasi.
+
+26-02-24 : lanjut membuat data togle dan rapihkan script style css

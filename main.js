@@ -18,5 +18,13 @@ const app = new Vue({
         addCart:function (product){
           this.cart.push(product); 
         }
+      },
+      filters : {
+       trunCate(text, length, suffix){
+        if (text.length <= length){
+          return text;
+        }
+        return text.substring(0,length)+ suffix;
+       } 
       }
 })
