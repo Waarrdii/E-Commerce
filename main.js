@@ -3,7 +3,7 @@ const app = new Vue({
     el : "#app",
     data : {
       products : null,
-      cart : []
+      cart : [{product : product, qty : qty}]
     },
     mounted() {
         // Fetch data produk dari WooCommerce API
@@ -16,7 +16,11 @@ const app = new Vue({
       },
       methods:{
         addCart:function (product){
-          this.cart.push(product); 
+          let productIndex;
+          let ceckProduct = this.cart.filter(function(item, index){
+            
+          })
+
         }
       },
       filters : {
