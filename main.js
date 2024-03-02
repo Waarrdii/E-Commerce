@@ -3,7 +3,7 @@ const app = new Vue({
     el : "#app",
     data : {
       products : null,
-      cart : [{product : product, qty : qty}]
+      cart : []
     },
     mounted() {
         // Fetch data produk dari WooCommerce API
@@ -15,12 +15,23 @@ const app = new Vue({
           })
       },
       methods:{
-        addCart:function (product){
-          let productIndex;
-          let ceckProduct = this.cart.filter(function(item, index){
-            
-          })
-
+        addCart: function (product) {
+          // this.cart.push(product)
+          const productIndex = this.cart.findIndex(item => item.product.id === product.id);
+          
+          if (productIndex === -1) {
+            // Produk baru
+            this.cart.push({ product, qty: 1 });
+          } else {
+            // Produk sudah ada, tingkatkan qty
+            this.cart[productIndex].qty++;
+          }
+          
+        }
+      },
+      computed: {
+        totalQty (){
+          return this.cart.reduce((sum, item)=> sum + item.qty, 0)
         }
       },
       filters : {

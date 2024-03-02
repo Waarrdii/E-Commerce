@@ -31,13 +31,14 @@
               <li class=" dropdown nav-item position-relative">
                 <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-expanded="true" >
                 <span class="material-symbols-outlined">shopping_cart</span>
-                <span class="badge badge-pill badge-danger position-absolute" style="top: -3px; right: 0;" v-if="cart.length > 0">{{ cart.length }}</span>
+                <span class="badge badge-pill badge-danger position-absolute" style="top: -3px; right: 0;" v-if="cart.length > 0"><span>{{ totalQty }}</span></span>
                 </a>
                 <ul v-show="cart.length > 0" class="dropdown-menu dropdown-menu-right">
                   <li v-for="item in cart" class="d-flex flex-row justify-content-between mb-3">
-                    <img :src="item.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
-                    <div class="text-truncate mx-2" style="width: 120px;">{{ item.title }}</div>
-                    <div class="mx-2" style="width: 100px;">{{ item.price | currencyFormat}}</div>
+                    <img :src="item.product.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
+                    <div class="text-truncate mx-2" style="width: 150px;">{{ item.product.title }}</div>
+                    <div class="text-truncate mx-2">{{ item.qty }} x </div>
+                    <div class="mx-2" style="width: 100px;">{{ item.product.price | currencyFormat}}</div>
                   </li>
                 </ul>
               </li>
@@ -64,13 +65,13 @@
 
         <!-- product -->
         <div class="d-flex flex-wrap align-item-center">
-          <div v-for="product in products" :key="product.id" class="card col-2 my-1 mx-1">
+          <div v-for="item in products" :key="item.id" class="card col-2 my-1 mx-1">
             <a href="#" class="card-body text-dark text-decoration-none">
-              <img :src="product.image" referrerpolicy="no-referrer" class="card-img-top mb-2 " style="height: 150px; object-fit: scale-down;" alt="...">
-              <p href="#" class="card-title text-truncate" >{{ product.title }}</p>
-              <h5 class="card-text mt-auto">{{ product.price | currencyFormat}}</h5>
+              <img :src="item.image" referrerpolicy="no-referrer" class="card-img-top mb-2 " style="height: 150px; object-fit: scale-down;" alt="...">
+              <p href="#" class="card-title text-truncate" >{{ item.title }}</p>
+              <h5 class="card-text mt-auto">{{ item.price | currencyFormat}}</h5>
             </a>
-            <button type="button" class="btn btn-success mb-sm-2" v-on:click="addCart(product)">
+            <button type="button" class="btn btn-success mb-sm-2" v-on:click="addCart(item)">
               <span class="material-symbols-outlined" style="vertical-align: middle;">shopping_cart</span>
               <span style="vertical-align: middle;">Buy</span>
             </button>
