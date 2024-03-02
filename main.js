@@ -25,6 +25,9 @@ const app = new Vue({
           return text;
         }
         return text.substring(0,length)+ suffix;
+       },
+       currencyFormat(price){
+        return 'Rp. '+ Number.parseFloat(price).toFixed(2);
        } 
       }
 })

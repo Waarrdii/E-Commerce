@@ -29,7 +29,7 @@
             </form>
             <ul class="navbar-nav my-2 my-lg-0">
               <li class=" dropdown nav-item position-relative">
-                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-expanded="false" >
+                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-expanded="true" >
                 <span class="material-symbols-outlined">shopping_cart</span>
                 <span class="badge badge-pill badge-danger position-absolute" style="top: -3px; right: 0;" v-if="cart.length > 0">{{ cart.length }}</span>
                 </a>
@@ -37,7 +37,7 @@
                   <li v-for="item in cart" class="d-flex flex-row justify-content-between mb-3">
                     <img :src="item.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
                     <div class="text-truncate mx-2" style="width: 120px;">{{ item.title }}</div>
-                    <div class="mx-2">{{ item.price }}</div>
+                    <div class="mx-2" style="width: 100px;">{{ item.price | currencyFormat}}</div>
                   </li>
                 </ul>
               </li>
@@ -68,7 +68,7 @@
             <a href="#" class="card-body text-dark text-decoration-none">
               <img :src="product.image" referrerpolicy="no-referrer" class="card-img-top mb-2 " style="height: 150px; object-fit: scale-down;" alt="...">
               <p href="#" class="card-title text-truncate" >{{ product.title }}</p>
-              <h5 class="card-text mt-auto">$ {{ product.price }}</h5>
+              <h5 class="card-text mt-auto">{{ product.price | currencyFormat}}</h5>
             </a>
             <button type="button" class="btn btn-success mb-sm-2" v-on:click="addCart(product)">
               <span class="material-symbols-outlined" style="vertical-align: middle;">shopping_cart</span>
