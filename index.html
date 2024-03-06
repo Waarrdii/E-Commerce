@@ -39,8 +39,9 @@
                     <div class="text-truncate mx-2" style="width: 150px;">{{ item.product.title }}</div>
                     <div class="text-truncate mx-2">{{ item.qty }} x </div>
                     <div class="mx-2" style="width: 100px;">{{ item.product.price | currencyFormat}}</div>
-                    <div class="mx-2" style="width: 100px;">{{ calculateItem }}</div>
+                    <div class="mx-2" style="width: 100px;">{{ item.product.price * item.qty | currencyFormat }}</div>
                   </li>
+                  <b>Total Belanja : {{calculateItem}}</b>
                 </ul>
               </li>
               <li class="nav-item">
