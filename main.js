@@ -32,6 +32,13 @@ const app = new Vue({
       computed: {
         totalQty (){
           return this.cart.reduce((sum, item)=> sum + item.qty, 0)
+        },
+        calculateItem(){
+          let total ;
+          for (i in this.cart){
+            total = this.cart[i].product.title;
+          }
+          return total;
         }
       },
       filters : {

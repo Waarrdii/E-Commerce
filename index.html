@@ -39,6 +39,7 @@
                     <div class="text-truncate mx-2" style="width: 150px;">{{ item.product.title }}</div>
                     <div class="text-truncate mx-2">{{ item.qty }} x </div>
                     <div class="mx-2" style="width: 100px;">{{ item.product.price | currencyFormat}}</div>
+                    <div class="mx-2" style="width: 100px;">{{ calculateItem }}</div>
                   </li>
                 </ul>
               </li>
