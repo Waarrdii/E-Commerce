@@ -38,10 +38,10 @@
                     <img :src="item.product.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
                     <div class="text-truncate mx-2" style="width: 150px;">{{ item.product.title }}</div>
                     <div class="text-truncate mx-2">{{ item.qty }} x </div>
-                    <div class="mx-2" style="width: 100px;">{{ item.product.price | currencyFormat}}</div>
-                    <div class="mx-2" style="width: 100px;">{{ item.product.price * item.qty | currencyFormat }}</div>
+                    <div class="mx-2" style="width: 100px;">{{ item.product.price | formatCurrency}}</div>
+                    <div class="mx-2" style="width: 100px;">{{ item.total | formatCurrency}}</div>
                   </li>
-                  <b>Total Belanja : {{calculateItem}}</b>
+                  <b>Total Belanja : {{calculateItem | formatCurrency}}</b>
                 </ul>
               </li>
               <li class="nav-item">
@@ -71,7 +71,7 @@
             <a href="#" class="card-body text-dark text-decoration-none">
               <img :src="item.image" referrerpolicy="no-referrer" class="card-img-top mb-2 " style="height: 150px; object-fit: scale-down;" alt="...">
               <p href="#" class="card-title text-truncate" >{{ item.title }}</p>
-              <h5 class="card-text mt-auto">{{ item.price | currencyFormat}}</h5>
+              <h5 class="card-text mt-auto">{{ item.price | formatCurrency}}</h5>
             </a>
             <button type="button" class="btn btn-success mb-sm-2" v-on:click="addCart(item)">
               <span class="material-symbols-outlined" style="vertical-align: middle;">shopping_cart</span>

@@ -11,20 +11,25 @@ const app = new Vue({
           .then(response => {
             // Simpan data produk dalam state
             this.products = response.data
-            console.log(this.products)
+            // console.log(this.products)
           })
       },
       methods:{
         addCart: function (product) {
           // this.cart.push(product)
           const productIndex = this.cart.findIndex(item => item.product.id === product.id);
-          
+          let total = product.price;
           if (productIndex === -1) {
             // Produk baru
-            this.cart.push({ product, qty: 1 });
+            this.cart.push({ product, qty: 1, total });
+           
           } else {
             // Produk sudah ada, tingkatkan qty
             this.cart[productIndex].qty++;
+            total = total * this.cart[productIndex].qty;
+            this.cart[productIndex].total = total;
+            // console.log(product.price,this.cart[productIndex].qty,total)
+
           }
           
         }
@@ -32,12 +37,11 @@ const app = new Vue({
       computed: {
       
         calculateItem(){
-          let total =0;
+          let totalCart =0;
           for (i in this.cart){
-            total += this.cart[i].product.price * this.cart[i].qty;
-            
+            totalCart += this.cart[i].total;
           }
-          return total;
+          return totalCart;
         },
         totalQty (){
           return this.cart.reduce((sum, item)=> sum + item.qty, 0)
@@ -52,6 +56,13 @@ const app = new Vue({
        },
        currencyFormat(price){
         return 'Rp. '+ Number.parseFloat(price).toFixed(2);
-       } 
+       } ,
+       formatCurrency(number) {
+        const locale = "id-ID";
+        const options = { style: "currency", currency: "IDR" };
+        const formatter = new Intl.NumberFormat(locale, options);
+        return formatter.format(number);
+      }
+      
       }
 })
