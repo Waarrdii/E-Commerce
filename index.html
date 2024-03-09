@@ -34,12 +34,12 @@
                 <span class="badge badge-pill badge-danger position-absolute" style="top: -3px; right: 0;" v-if="cart.length > 0"><span>{{ totalQty }}</span></span>
                 </a>
                 <ul v-show="cart.length > 0" class="dropdown-menu dropdown-menu-right">
-                  <li v-for="item in cart" class="d-flex flex-row justify-content-between mb-3">
+                  <li v-for="(item, index) in cart" class="d-flex flex-row justify-content-between mb-3">
                     <img :src="item.product.image" style="height: 40px; width: 40px; object-fit: scale-down;" alt="...">
                     <div class="text-truncate mx-2" style="width: 150px;">{{ item.product.title }}</div>
                     <div class="d-flex flex-row justify-content-between px-sm-2" style="width: 110px;"><span>{{ item.qty }} x </span><span class="text-right ">{{ item.product.price | formatCurrency}}</span></div>
                     <div class="text-right px-sm-2" style="width: 100px;">{{ item.total | formatCurrency}}</div>
-                    <a href="#" class="badge badge-danger text-white" @click="deleteItem(cart)">-</a>
+                    <a href="#" class="badge badge-danger text-white" @click="deleteItem(index)">-</a>
                   </li>
                   <b>Total Belanja : {{calculateItem | formatCurrency}}</b>
                 </ul>
