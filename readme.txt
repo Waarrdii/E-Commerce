@@ -1,3 +1,11 @@
+delete item gagal, tanyakan hubungan (cart) pada handle @click="deleteItem(cart)" dengan key pada methods
+
+
+
+
+
+
+
 lanjut ke mengenal event dan method di codepolitan untuk membuat cart
 
 style baru : 

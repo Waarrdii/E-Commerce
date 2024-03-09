@@ -32,6 +32,13 @@ const app = new Vue({
 
           }
           
+        },
+        deleteItem:function(key){
+          if(this.cart[key].qty > 1){
+            this.cart[key].qty --;
+          }else{
+            this.cart.splice(key, 1);
+          }
         }
       },
       computed: {
@@ -63,6 +70,7 @@ const app = new Vue({
         const formatter = new Intl.NumberFormat(locale, options);
         return formatter.format(number);
       }
+    
       
       // formatCurrency(number) {
       //   const locale = "id-ID";
