@@ -64,5 +64,16 @@ const app = new Vue({
         return formatter.format(number);
       }
       
+      // formatCurrency(number) {
+      //   const locale = "id-ID";
+      //   const options = {
+      //     style: "decimal",  // Ubah "currency" menjadi "decimal"
+      //     minimumFractionDigits: 2,
+      //     maximumFractionDigits: 2,
+      //     roundingMode: "ceil",  // Tambahkan opsi "minimumFractionDigits: 2"
+      //   };
+      //   const formatter = new Intl.NumberFormat(locale, options);
+      //   return formatter.format(number);
+      // }
       }
 })
